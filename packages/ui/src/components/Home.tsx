@@ -4,11 +4,11 @@ import Link from "next/link";
 import { C, eyebrow, sectionHeading } from "../lib/theme";
 import { PrimaryLink, ArrowRight } from "./ui/PrimaryLink";
 import { Reveal } from "./ui/Reveal";
-import { CareerJourney } from "./CareerJourney";
-import { Aurora } from "./ui/Aurora";
 import { CAREER_SERVICES } from "../data/careerServices";
 import { PRICING_TIERS, PRICING_IS_PLACEHOLDER } from "../lib/pricing";
 import { RESOURCES } from "../data/resources";
+import { TRUST, STEPS, INSIGHTS } from "../data/home_static";
+import { HeroSection } from "./home/HeroSection";
 
 const styles = `
   .hx-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -29,27 +29,7 @@ const styles = `
   }
 `;
 
-const TRUST = [
-  { title: "Human Reviewed", body: "Every profile receives real human review and feedback." },
-  { title: "Personalized Guidance", body: "Recommendations tailored to your goals and experience." },
-  { title: "Independent Advice", body: "No recruitment commissions or hidden incentives." },
-  { title: "Practical Support", body: "Focused on actions that improve outcomes." },
-];
 
-const STEPS = [
-  "Profile Assessment",
-  "Resume & LinkedIn Review",
-  "Job Search Strategy",
-  "Application Support",
-  "Interview Preparation",
-];
-
-const INSIGHTS = [
-  "Tailored resumes generally outperform generic resumes in recruiter screening processes.",
-  "Employee referrals remain among the highest-converting hiring channels.",
-  "Complete LinkedIn profiles receive significantly greater recruiter visibility than incomplete profiles.",
-  "Strategic follow-up outreach can increase application visibility.",
-];
 
 const sectionPad = { padding: "88px 0", borderBottom: `1px solid ${C.border}` } as const;
 const cardLabel = { fontSize: "16px", fontWeight: 600, color: C.text, marginBottom: "10px", letterSpacing: "-0.01em" } as const;
@@ -61,34 +41,7 @@ export function Home() {
       <style>{styles}</style>
 
       {/* ── 1. Hero ── */}
-      <section style={{ padding: "104px 0 64px", position: "relative", overflow: "hidden", borderBottom: `1px solid ${C.border}` }}>
-        <Aurora variant="homepage" />
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(77,124,255,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
-        <div className="sx-container" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ maxWidth: "760px" }}>
-          <p style={eyebrow}>Career Services</p>
-          <h1 style={{ fontSize: "clamp(38px, 5.6vw, 66px)", fontWeight: 300, color: C.text, lineHeight: 1.08, letterSpacing: "-0.03em", marginBottom: "26px" }}>
-            Practical career guidance for professionals in transition.
-          </h1>
-          <p style={{ fontSize: "18px", color: C.textMuted, lineHeight: 1.6, marginBottom: "40px", maxWidth: "620px" }}>
-            Resume reviews, LinkedIn optimization, application strategy, interview preparation, and
-            personalized support designed to help professionals move forward with confidence.
-          </p>
-          <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap", marginBottom: "28px" }}>
-            <PrimaryLink href="/book">Book Consultation<ArrowRight /></PrimaryLink>
-            <Link
-              href="/services/career-services"
-              style={{ fontSize: "14px", color: C.textMuted, display: "inline-flex", alignItems: "center", gap: "6px", transition: "color 0.15s" }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = C.text; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = C.textMuted; }}
-            >
-              Explore Career Services →
-            </Link>
-          </div>
-          </div>
-          <div style={{ marginTop: "56px" }}><CareerJourney /></div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ── 2. Trust bar ── */}
       <section style={sectionPad}>
