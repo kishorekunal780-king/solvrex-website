@@ -9,6 +9,8 @@ import { PRICING_TIERS, PRICING_IS_PLACEHOLDER } from "../lib/pricing";
 import { RESOURCES } from "../data/resources";
 import { TRUST, STEPS, INSIGHTS } from "../data/home_static";
 import { HeroSection } from "./home/HeroSection";
+import { TrustSection } from "./home/TrustSection";
+import { sectionPad, cardLabel, cardBody } from "../lib/homestyles";
 
 const styles = `
   .hx-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -31,10 +33,6 @@ const styles = `
 
 
 
-const sectionPad = { padding: "88px 0", borderBottom: `1px solid ${C.border}` } as const;
-const cardLabel = { fontSize: "16px", fontWeight: 600, color: C.text, marginBottom: "10px", letterSpacing: "-0.01em" } as const;
-const cardBody = { fontSize: "14px", color: C.textMuted, lineHeight: 1.6 } as const;
-
 export function Home() {
   return (
     <div style={{ backgroundColor: "transparent" }}>
@@ -43,22 +41,7 @@ export function Home() {
       {/* ── 1. Hero ── */}
       <HeroSection />
 
-      {/* ── 2. Trust bar ── */}
-      <section style={sectionPad}>
-        <div className="sx-container">
-          <Reveal>
-            <div className="hx-grid-4">
-              {TRUST.map((t) => (
-                <div key={t.title} style={{ padding: "4px" }}>
-                  <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: C.blue, marginBottom: "16px" }} aria-hidden="true" />
-                  <h3 style={cardLabel}>{t.title}</h3>
-                  <p style={cardBody}>{t.body}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <TrustSection />
 
       {/* ── 3. How it works ── */}
       <section style={sectionPad}>
