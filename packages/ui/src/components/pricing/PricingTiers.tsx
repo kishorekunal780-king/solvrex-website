@@ -18,9 +18,12 @@ export function PricingTiers() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                padding: "28px 24px",
-                borderRadius: "12px",
-                background: tier.highlighted ? C.bgSurface : "transparent",
+                padding: "36px 32px",
+                borderRadius: "20px",
+                background: "var(--sx-bg-surface)",
+                border: tier.highlighted ? `1.5px solid ${C.blue}` : `1px solid ${C.border}`,
+                boxShadow: tier.highlighted ? "0 8px 30px rgba(195,157,83,0.12)" : "0 4px 20px rgba(0,0,0,0.02)",
+                position: "relative",
               }}
             >
               {tier.highlighted && (
@@ -28,10 +31,11 @@ export function PricingTiers() {
                   style={{
                     fontSize: "11px",
                     fontWeight: 600,
-                    letterSpacing: "0.08em",
+                    letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: C.blueLight,
+                    color: C.blue,
                     marginBottom: "12px",
+                    display: "inline-block",
                   }}
                 >
                   Most popular

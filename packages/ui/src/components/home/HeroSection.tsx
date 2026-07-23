@@ -25,7 +25,7 @@ export function HeroSection() {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "radial-gradient(rgba(77,124,255,0.06) 1px, transparent 1px)",
+            "radial-gradient(rgba(195,157,83,0.05) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           pointerEvents: "none",
         }}
@@ -35,11 +35,12 @@ export function HeroSection() {
           <p style={eyebrow}>Career Services</p>
           <h1
             style={{
+              fontFamily: "var(--sx-font-serif)",
               fontSize: "clamp(38px, 5.6vw, 66px)",
-              fontWeight: 300,
+              fontWeight: 400,
               color: C.text,
               lineHeight: 1.08,
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.02em",
               marginBottom: "26px",
             }}
           >
