@@ -94,12 +94,12 @@
 | ------------------------------ | -------------------------------------------------------------- |
 | `apps/us/public/silk-wave.png` | Decorative silk wave background image (updated with new asset) |
 | `apps/in/public/silk-wave.png` | Same image for the IN app (updated with new asset)             |
-| `ui-redesign-progress.md`      | This progress tracker                                          |
+| `light_mode_progress.md`      | This progress tracker                                          |
 
 ## Remaining Tasks
 
-- None. Redesign fully complete and visually aligned with the premium aesthetic.
+- working on the smooth scrolling of the website, removing unintended animations and jitters
 
 ## Next Step
 
-Ready for final review and production deployment. All features, routing, and dark mode states have been completely preserved and verified, with the background flowing continuously from the very top of the website to the very bottom.
+Ready for final review .All features, routing, and dark mode states have been completely preserved and verified, with the background flowing continuously from the very top of the website to the very bottom.
