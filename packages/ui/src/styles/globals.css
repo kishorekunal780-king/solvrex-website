@@ -10,7 +10,7 @@
     sans-serif;
   --sx-base: #faf6f0;
   --sx-bg: #faf6f0;
-  --sx-bg-surface: rgba(244, 239, 230, 0.65);
+  --sx-bg-surface: rgba(244, 239, 230, 1);
   --sx-bg-raised: rgba(236, 230, 218, 0.6);
   --sx-bg-footer: rgba(242, 237, 227, 0.5);
   --sx-border: rgba(210, 200, 180, 0.35);
@@ -76,8 +76,8 @@
   opacity: 0;
   transform: translateY(14px);
   transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+    opacity 0.9s ease,
+    transform 1s ease;
 }
 .sx-reveal.in {
   opacity: 1;
@@ -173,11 +173,7 @@
 @media (max-width: 768px) {
   body {
     background-image:
-      linear-gradient(
-        to right,
-        #faf6f0 0%,
-        #faf6f0 100%
-      ),
+      linear-gradient(to right, #faf6f0 0%, #faf6f0 100%),
       radial-gradient(
         ellipse at 8% 0%,
         rgba(255, 255, 255, 0.95) 0%,
@@ -188,8 +184,7 @@
         rgba(240, 232, 215, 0.35) 0%,
         transparent 60%
       ),
-      none,
-      linear-gradient(180deg, #fcfaf5 0%, #f9f5ed 50%, #f5f0e6 100%) !important;
+      none, linear-gradient(180deg, #fcfaf5 0%, #f9f5ed 50%, #f5f0e6 100%) !important;
   }
   .sx-bg::after {
     display: none;
@@ -475,22 +470,17 @@ body {
       rgba(240, 232, 215, 0.35) 0%,
       transparent 60%
     ),
-    url("/silk-wave.png"),
+    /*url("/silk-wave.png"),*/
     linear-gradient(180deg, #fcfaf5 0%, #f9f5ed 50%, #f5f0e6 100%);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-size:
     100% 100%,
     100% 100%,
     100% 100%,
-    70% auto,
+    100% 100,
     100% 100%;
-  background-position:
-    center,
-    center,
-    center,
-    right -3vw top 2vh,
-    center;
-  background-attachment: scroll, scroll, scroll, fixed, scroll;
+  background-position: center, center, center, center, center;
+  background-attachment: scroll, scroll, scroll, scroll, scroll;
   color: var(--sx-text);
   font-family: var(--sx-font-sans);
   -webkit-font-smoothing: antialiased;
@@ -499,6 +489,27 @@ body {
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+
+  background-image: url("/silk-wave.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.65;
+
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 ::selection {
